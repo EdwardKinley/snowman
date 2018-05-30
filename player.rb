@@ -7,6 +7,4 @@ class Player
     @lives = lives
   end
 
-  
-
 end
