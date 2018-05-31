@@ -17,4 +17,24 @@ class HiddenWordTest < MiniTest::Test
     assert_equal(false, @hidden_word1.letter_in_word?("x"))
   end
 
+  def test_reveal_letter__e
+    @hidden_word1.reveal_letter("e")
+    assert_equal("**ee* ** ******e",
+       @hidden_word1.display)
+  end
+
+  def test_reveal_letter__e_then_x
+    @hidden_word1.reveal_letter("e")
+    @hidden_word1.reveal_letter("x")
+    assert_equal("**ee* ** ******e", @hidden_word1.display)
+  end
+
+  def test_reveal_letter__e_then_x_then_o_then_f
+    @hidden_word1.reveal_letter("e")
+    @hidden_word1.reveal_letter("x")
+    @hidden_word1.reveal_letter("o")
+    @hidden_word1.reveal_letter("f")
+    assert_equal("**ee* of fo****e", @hidden_word1.display)
+  end
+
 end
